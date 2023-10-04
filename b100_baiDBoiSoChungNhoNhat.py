@@ -1,5 +1,6 @@
 from math import*
 # elpulga
+m = int(1e9+7)
 def count(a, b):
     res = 0
     lcm = 1
@@ -9,6 +10,7 @@ def count(a, b):
         for y in range(1, lcm+1):
             if lcm == x*y//gcd(x, y):
                 res+=1
+                res%=m
                 # print(x, y, sep=' ')
     # print(res)
     return res
