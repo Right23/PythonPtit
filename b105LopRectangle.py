@@ -7,15 +7,17 @@ class Rectangle:
         return self.l
     def getW(self):
         return self.w
-    def getC(self):
+    def color(self):
         return self.c.title()
     def perimeter(self):
-        return 2*(self.getL()+self.getW())
+        # return 2*(self.getL()+self.getW())
+        return (self.l+self.w)>>1
     def area(self):
         return self.getL()*self.getW()
     
-if __name__ == '__main__':
-    arr = input().split()
+arr = input().split()
+if int(arr[0]) > 0 and int(arr[1]) > 0:
     r = Rectangle(int(arr[0]), int(arr[1]), str(arr[2]))
-    print('{} {} {}'.format(r.perimeter(), r.area(), r.getC()))
-    
+    print('{} {} {}'.format(r.perimeter(), r.area(), r.color()))
+else:
+    print('INVALID')

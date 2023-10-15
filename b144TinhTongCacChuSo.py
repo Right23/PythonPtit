@@ -1,14 +1,15 @@
 def solve(s):
     sum = 0
-    ans=[i for i in s]
-    for i in ans:
+    res = []
+    tmp=[i for i in s]
+    for i in tmp:
         if i.isdigit():
-            sum+=int(i)
-            ans.remove(i)
-    ans.sort()
-    for i in ans:
-        if i != '0':
-            print(i, end='')
+            sum += int(i)
+        else:
+            res.append(i)
+    res.sort()
+    for i in res:
+        print(i, end='')
     print(sum)
 for t in range(int(input())):
     s = input()
