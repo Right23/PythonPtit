@@ -15,7 +15,7 @@ def sum_time(st, en):
 
 arr = []
 ten = []
-# ten de luu ten cac tram
+# ten[] de luu ten cac tram
 for i in range(int(input().strip())):
     id = 'T{:02}'.format(i+1)
     name = input().strip()

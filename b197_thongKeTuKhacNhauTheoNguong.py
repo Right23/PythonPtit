@@ -1,4 +1,4 @@
-n = int(input())
+n, k = map(int, input().split())
 d = dict()
 while n > 0:
     s = input().lower()
@@ -15,6 +15,7 @@ while n > 0:
     n-=1
 a = sorted(d.items(), key=lambda x: (-x[1], x[0]))
 for x in a:
-    print(x[0], x[1])
+    if x[1]>=k:
+        print(x[0], x[1])
 # for i in range(len(a)):
 #     print(a[i][0], a[i][1])

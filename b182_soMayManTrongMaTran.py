@@ -1,6 +1,7 @@
 n, m = map(int,input().split())
 a=[[0]]*n
 Ma, Mi, ok, da_In = 0, 10**6, 0, 0
+# da_In de kiem tra xem da in khoang cach hay chua
 for i in range(n):
     a[i] = [int(i) for i in input().split()]
     Ma = max(Ma, max(a[i]))

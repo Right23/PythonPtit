@@ -39,3 +39,4 @@ for i in range(int(input().strip())):
 a.sort(key=lambda x: -x.get_sum())
 for i in a:
     print(i)
+    

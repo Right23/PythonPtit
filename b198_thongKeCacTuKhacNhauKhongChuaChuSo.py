@@ -4,7 +4,7 @@ while n > 0:
     s = input().lower()
     tmp = ''
     for x in s + ' ':
-        if x.isalpha() or x.isdigit():
+        if x.isalpha():
             tmp += x
         elif len(tmp) != 0:
             if tmp in d:

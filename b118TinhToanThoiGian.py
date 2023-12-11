@@ -25,5 +25,6 @@ for i in range(int(input())):
 arr.sort(key=lambda x: -x.time)
 for i in arr:
     print(i)
+    
 
 
