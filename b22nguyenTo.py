@@ -5,6 +5,15 @@ def gcd(a, b):
     else:
         return gcd(b, a%b)
 #
+def sieve():
+    Max = int(1e6+1)
+    prime = [1]*Max
+    prime[0] = prime[1] = 0
+    for i in range(2, 1000):
+        if prime[i]:
+            for j in range(i*i, Max, i):
+                prime[j] = 0
+                
 def snt(x):
     if(x<2): return 0
     for i in range(2,isqrt(x)+1):

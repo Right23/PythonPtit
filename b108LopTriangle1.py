@@ -7,7 +7,7 @@ class Point:
         self.y = y
 
     def distance(self, other):
-        res = sqrt(pow(self.x - other.x, 2) + pow(self.y - other.y, 2))
+        res = sqrt((self.x - other.x)** 2 + pow(self.y - other.y, 2))
         return res
 
     def getX(self):

@@ -16,14 +16,21 @@ class CaThi:
         self.ngayThi = ngayThi
         self.gioThi = gioThi
         self.phongThi = phongThi
-        def get_maCa(self):
-            return self.maCa
-        def get_ngayThi(self):
-            return self.ngayThi
-        def get_gioThi(self):
-            return self.gioThi
-        def get_phongThi(self):
-            return self.phongThi
+    def get_maCa(self):
+        return self.maCa
+    def get_ngayThi(self):
+        return self.ngayThi
+    def get_gioThi(self):
+        return self.gioThi
+    def get_phongThi(self):
+        return self.phongThi
+    
+    def get_date(self):
+        date = ''
+        tmp = self.ngayThi.split('/')
+        for i in range(2, -1, -1):
+            date += tmp[i]+'/'
+        return date
 # 
 class LichThi:
     def __init__(self, caThi, monThi, maNhom, soSv):
@@ -41,38 +48,45 @@ class LichThi:
         return self.soSv
 
     def __str__(self):
-        return self.caThi.get_ngayThi()+' '+self.caThi.get_gioThi()+' '+self.caThi.get_phongThi()+' '+self.monThi.get_tenMon()+' '+self.maNhom+' '+self.soSv
+        return '{} {} {} {} {} {}'.format(self.caThi.get_ngayThi(), self.caThi.get_gioThi(), self.caThi.get_phongThi(), self.monThi.get_tenMon(), self.maNhom, self.soSv)
+
 if __name__=='__main__':
     f = open("MONTHI.in", "r")
     d_monThi =dict()
-    n = int(f.readline())
-    for i in range(0, n):
-        maMon = (f.readline())
-        tenMon = f.readline()
-        hinhThuc = f.readline()
+    n = int(f.readline().strip())
+    for i in range(n):
+        maMon = f.readline().strip()
+        tenMon = f.readline().strip()
+        hinhThuc = f.readline().strip()
         d_monThi[maMon] = MonThi(maMon, tenMon, hinhThuc)
-        f.close()
-        
+    f.close()
+    # for key, value in d_monThi.items():
+    #     print(key, value)
+    
     c = open("CATHI.in", "r")
     d_caThi = dict()
-    n = int(c.readline())
+    n = int(c.readline().strip())
     for i in range(0, n):
         maCa = 'C{:03}'.format(i+1)
-        ngayThi = c.readline()
-        gioThi = c.readline()
-        phongThi = c.readline()
+        ngayThi = c.readline().strip()
+        gioThi = c.readline().strip()
+        phongThi = c.readline().strip()
         d_caThi[maCa] = CaThi(i+1,ngayThi, gioThi, phongThi)
-        c.close()
+    c.close()
+    # for key, value in d_caThi.items():
+    #     print(key, value)
         
     l = open("LICHTHI.in", "r")
     arr = []
-    n = int(l.readline())
-    while n > 0:
-        maCa = l.readline()
-        maMon = l.readline()
-        maNhom = l.readline()
-        soSv = int(l.readline())
-        arr.append(LichThi(d_caThi(maCa), d_monThi(maMon), maNhom, soSv))
-        n -= 1
+    n = int(l.readline().strip())
+    for i in range(n):
+        a = l.readline().strip().split()
+        maCa = a[0]
+        maMon = a[1]
+        maNhom = a[2]
+        soSv = int(a[3])
+        arr.append(LichThi(d_caThi[maCa], d_monThi[maMon], maNhom, soSv))
+    l.close()
+    arr.sort(key=lambda x: (x.get_CaThi().get_date(), x.get_CaThi().get_gioThi(), x.get_CaThi().get_maCa()))
     for x in arr:
         print(x)

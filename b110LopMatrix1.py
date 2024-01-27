@@ -10,7 +10,7 @@ class Matrix:
             res += [[0]*self.n]
             for j in range(self.n):
                 for k in range(self.m):
-                    res[i][j]+= self.mt[i][k]*self.mt[j][k  ]
+                    res[i][j]+= self.mt[i][k]*self.mt[j][k]
         return Matrix(self.n, self.m, res)
     def __str__(self):
         for i in self.mt:

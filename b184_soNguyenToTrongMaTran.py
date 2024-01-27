@@ -1,17 +1,26 @@
-n, m = map(int,input().split())
-a=[[0]]*n
-Ma, Mi, ok, da_In = 0, 10**6, 0, 0
+from math import*
+def snt(n):
+    if n < 2:
+        return False
+    for i in range(2, int(sqrt(n))+1):
+        if n%i==0:
+            return False
+    return True
+n, m = map(int, input().split())
+a = []
 for i in range(n):
-    a[i] = [int(i) for i in input().split()]
-    Ma = max(Ma, max(a[i]))
-    Mi = min(Mi, min(a[i]))
+    row = [int(i) for i in input().split()]
+    a.append(row)
+res = 0
 for i in range(n):
     for j in range(m):
-        if a[i][j]==Ma-Mi:
-            if da_In==0:
-                print(Ma-Mi)
-                da_In = 1
-                ok = 1
-            print("Vi tri [", i, "]", "[", j, "]", sep='')
-if ok==0:
+        if snt(a[i][j]):
+            res = max(res, a[i][j])
+if res==0:
     print("NOT FOUND")
+else:
+    print(res)
+    for i in range(n):
+        for j in range(m):
+            if a[i][j] ==res:
+                print("Vi tri ["+str(i)+"]["+str(j)+"]")

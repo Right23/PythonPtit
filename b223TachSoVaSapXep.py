@@ -1,13 +1,13 @@
 arr = []
 for t in range(int(input())):
     s = input()
-    tmp = 0
-    for i in range(len(s)):
-        if s[i].isdigit():
-            tmp*=10+int(s[i])
+    nums = ''
+    for x in s:
+        if x.isdigit():
+            nums += x
         else:
-            if tmp != 0:
-                arr.append(tmp)
-                tmp = 0
-for i in (arr):
+            nums += ' '
+    arr.extend([int(x) for x in nums.split()])
+                
+for i in sorted(arr):
     print(i)

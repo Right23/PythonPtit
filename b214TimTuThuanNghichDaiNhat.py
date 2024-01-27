@@ -6,7 +6,7 @@ a = [i for i in f.read().split()]
 res = -1
 ans = ""
 b = []
-dain = {}
+daIn = {}
 for i in a:
     if tn(i):
         if len(i) >= res:
@@ -14,9 +14,9 @@ for i in a:
             ans = i
             b.append(ans)
 for i in b:
-    dain[i] = False
+    daIn[i] = False
 for i in b:
-    if len(i) == res and dain[i] == False:
+    if len(i) == res and daIn[i] == False:
         print(i, a.count(i), sep=' ')
-        dain[i] = True
+        daIn[i] = True
             

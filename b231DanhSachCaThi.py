@@ -8,22 +8,17 @@ class ca:
         return '{} {} {} {}'.format(self.id, self.date, self.time, self.code)
 
 f = open("CATHI.in", "r")
-tmp = [i for i in f.read().split()]
 arr = []
-j = 1
-t = tmp[0]
-for i in range(1, len(tmp), 3):
-    id = 'C{:03}'.format(j)
-    j+=1
-    date = tmp[i]
-    time = tmp[i+1]
-    code = tmp[i+2]
+for i in range(int(f.readline())):
+    id = 'C{:03}'.format(i+1)
+    date = str(f.readline().strip())
+    time = str(f.readline().strip())
+    code = str(f.readline().strip())
     arr.append(ca(id, date, time, code))
-arr.sort(key=lambda x: (x.date, x.time, x.id))
+arr.sort(key=lambda x:(x.date, x.time, x.id))
 for i in arr:
     print(i)
-# for i in tmp:
-#     print(i)
+
 
 
         
